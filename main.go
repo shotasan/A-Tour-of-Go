@@ -6,7 +6,7 @@ import (
 
 func main() {
 	sum := 1
-	// 初期化と後処理ステートメントは任意
+	// whileはforだけを使う
 	for sum < 1000 {
 		sum += sum
 	}
