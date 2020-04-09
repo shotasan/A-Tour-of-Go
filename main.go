@@ -10,11 +10,15 @@ type Vertex struct {
 	Y int
 }
 
+var (
+	v1 = Vertex{1, 2}  //構造体のフィールドの初期化
+	v2 = Vertex{X: 1}  //Xだけを初期化。Yは暗黙的に0になる
+	v3 = Vertex{}      //初期化しない。XとYは０になる
+	p  = &Vertex{1, 2} //構造体のポインタを取得
+)
+
 func main() {
-	v := Vertex{1, 2}
-	p := &v             //構造体のポインタの取得
-	fmt.Println((*p).X) //ポインタを通して構造体の値にアクセス
-	fmt.Println(p.X)    //省略しても書ける
-	p.X = 1e9
-	fmt.Println(v)
+	fmt.Println(p)
+	fmt.Println(*p) //ポインタを通して値を取得
+	fmt.Println(v1, p, v2, v3)
 }
