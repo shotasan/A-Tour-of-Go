@@ -10,15 +10,15 @@ type Vertex struct {
 	Y int
 }
 
-var (
-	v1 = Vertex{1, 2}  //構造体のフィールドの初期化
-	v2 = Vertex{X: 1}  //Xだけを初期化。Yは暗黙的に0になる
-	v3 = Vertex{}      //初期化しない。XとYは０になる
-	p  = &Vertex{1, 2} //構造体のポインタを取得
-)
-
 func main() {
-	fmt.Println(p)
-	fmt.Println(*p) //ポインタを通して値を取得
-	fmt.Println(v1, p, v2, v3)
+	var a [2]string
+	a[0] = "Hello"
+	a[1] = "World"
+	fmt.Println(a[0], a[1])
+	fmt.Println(a)
+
+	// 配列の長さより要素数が少ない場合は０が入る。多い場合はコンパイルエラー
+	// primes := [6]int{2, 3, 5, 7, 11} //=> [2 3 5 7 11 0]
+	primes := [6]int{2, 3, 5, 7, 11, 13}
+	fmt.Println(primes)
 }
