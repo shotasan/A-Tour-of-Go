@@ -5,24 +5,22 @@ import (
 )
 
 func main() {
-	q := []int{2, 3, 5, 7, 11, 13}
-	fmt.Println(q)
+	s := []int{2, 3, 5, 7, 11, 13}
 
-	r := []bool{true, false, true, true, false, true}
-	fmt.Println(r)
+	// 配列同様、インデックスでアクセスできる
+	fmt.Println(s[0])
 
-	// 要素が構造体のスライスを定義
-	// 構造体の定義と初期化を同時に行っている
-	s := []struct {
-		i int
-		b bool
-	}{
-		{2, true},
-		{3, false},
-		{5, true},
-		{7, true},
-		{11, false},
-		{13, true},
-	}
+	// 通常のスライス
+	s = s[1:4]
+	fmt.Println(s)
+
+	// 下限値を省略した記述
+	// 下限値の既定値は０なので[0:2]と等価
+	s = s[:2]
+	fmt.Println(s)
+
+	// 上限値を省略した記述
+	// 上限値の既定値はスライスの長さ
+	s = s[1:]
 	fmt.Println(s)
 }
