@@ -5,18 +5,24 @@ import (
 )
 
 func main() {
-	names := [4]string{
-		"John", "Paul", "George", "Ringo",
+	q := []int{2, 3, 5, 7, 11, 13}
+	fmt.Println(q)
+
+	r := []bool{true, false, true, true, false, true}
+	fmt.Println(r)
+
+	// 要素が構造体のスライスを定義
+	// 構造体の定義と初期化を同時に行っている
+	s := []struct {
+		i int
+		b bool
+	}{
+		{2, true},
+		{3, false},
+		{5, true},
+		{7, true},
+		{11, false},
+		{13, true},
 	}
-	fmt.Println(names)
-
-	a := names[0:2]
-	b := names[1:3]
-	fmt.Println(a, b)
-
-	// スライスの要素を変更すると、元となる配列の対応する要素が変更される。
-	// 同じ元となる配列を共有している他のスライスは、それらの変更が反映される。
-	b[0] = "XXX"
-	fmt.Println(a, b)
-	fmt.Println(names)
+	fmt.Println(s)
 }
