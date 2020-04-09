@@ -11,5 +11,7 @@ type Vertex struct {
 }
 
 func main() {
-	fmt.Println(Vertex{10, 2})
+	v := Vertex{1, 2}
+	v.X = 4
+	fmt.Println(v.X)
 }
