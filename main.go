@@ -1,23 +1,22 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
-func main() {
-	s := []int{2, 3, 5, 7, 11, 13}
-	printSlice(s)
-
-	s = s[:0]
-	printSlice(s)
-
-	s = s[:3]
-	printSlice(s)
-
-	s = s[2:]
-	printSlice(s)
+type I interface {
+	M()
 }
 
-func printSlice(s []int) {
-	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
+type T struct {
+	S string
+}
+
+// This method means type T implements the interface I,
+// but we don't need to explicitly declare that it does so.
+func (t T) M() {
+	fmt.Println(t.S)
+}
+
+func main() {
+	var i I = T{"hello"}
+	i.M()
 }
